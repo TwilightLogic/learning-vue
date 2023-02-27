@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+
+    <title>VueJS Course</title>
+  </head>
+
+  <body>
+    <!-- 为什么加上v-cloak？因为加载页面时vue可能没有那么快能加载出来，所以就会显示下面div中文本的内容，但没有数据传输过来 -->
+    <!-- 不懂就查官网吧 ⬆️ -->
+    <div id="app" v-cloak>
+      <!-- Vue会将div里面的内容视为模板 -->
+      <!-- <p>Hey!</p> -->
+      <!-- {{ firstName }} {{ lastName }}  -->
+      <!-- 用computed时记得去掉小括号哦 -->
+      <h1>{{ fullName }}</h1>
+      <!-- <p><a v-bind:href="url">Google</a></p> -->
+      <a :href="url">Google</a>
+      <!-- <p v-html="raw_url">google2</p> -->
+
+      <div class="age-input">
+        <button type="button" v-on:click="age--">Decrement</button>
+        <p>{{ age }}</p>
+        <button type="button" v-on:click="increment">Increment</button>
+      </div>
+      <hr />
+
+      <div class="name">
+        <div class="first-name">
+          <label>First Name</label>
+          <input type="text" v-model.lazy.trim="firstName" />
+        </div>
+
+        <div class="last-name">
+          <label>Last Name</label>
+          <!-- <input type="text" v-model="lastName" /> -->
+          <!-- 我们结合v-bind和v-on来进行双向数据绑定(v-model)的操作 -->
+          <!-- vue中传递event对象可以加个美元符 -->
+          <input
+            type="text"
+            :value="lastName"
+            @input.prevent="updateLastName('Last name event triggered!', $event)"
+          />
+        </div>
+
+        <div class="age-input">
+          <label>Age</label>
+          <input type="text" v-model.number="age" />
+        </div>
+      </div>
+    </div>
+
+    <!-- <div id="app2">
+      Vue会将div里面的内容视为模板 
+      <p>Hey!</p>
+      {{ firstName }} {{ lastName }}
+    </div> -->
+  </body>
+</html>

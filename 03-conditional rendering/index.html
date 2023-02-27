@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+
+    <title>conditional rendering</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 下面这三个要写到一起，vue才能识别 -->
+      <p v-if="mode == 1">Show v-if directive content</p>
+      <template v-else-if="mode == 2">
+        <h3>v-else-if--h3</h3>
+        <p>v-else-if</p>
+      </template>
+      <p v-else>v-else</p>
+
+      <select v-model="mode">
+        <option value="1">if</option>
+        <option value="2">else-if</option>
+        <option value="3">else</option>
+      </select>
+    </div>
+  </body>
+</html>

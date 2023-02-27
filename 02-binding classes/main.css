@@ -1,0 +1,95 @@
+/* 
+
+--- 01 TYPOGRAPHY SYSTEM
+
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* 10px */
+  font-size: 62.5%;
+}
+
+body {
+  /* background-color: #fdf2e9; */
+  font-family: 'Rubik', sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+}
+
+#app {
+  margin: 10rem auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+.select-box {
+  font-size: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+input[type='checkbox'] {
+  transform: scale(2);
+}
+
+select {
+  transform: scale(1.5);
+  border-style: none;
+  border-radius: 9px;
+  color: inherit;
+  border: 1px solid #555;
+}
+
+.text-black {
+  color: #424242;
+}
+
+.text-orange {
+  color: #ffc26f;
+}
+
+input[type='number'] {
+  font-size: 1.8rem;
+  border-style: none;
+  border-radius: 9px;
+  border: 2px solid #555;
+  padding: 0.8rem;
+}
+
+.circle {
+  height: 3.2rem;
+  width: 3.2rem;
+  font-size: 3.2rem;
+  background-color: #fdf2e9;
+  border-radius: 50%;
+  padding: 8rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.purple {
+  background-color: purple;
+}
