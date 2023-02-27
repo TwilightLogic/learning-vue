@@ -27,3 +27,5 @@ let vm = Vue.createApp({
     },
   },
 }).mount('#app');
+
+console.log('😃');
