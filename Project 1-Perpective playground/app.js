@@ -7,6 +7,14 @@ const vm = Vue.createApp({
       rotateZInput: 0,
     };
   },
+  methods: {
+    reset() {
+      (this.perspectiveInput = 0),
+        (this.rotateXInput = 0),
+        (this.rotateYInput = 0),
+        (this.rotateZInput = 0);
+    },
+  },
   computed: {
     changePerspective() {
       return {
