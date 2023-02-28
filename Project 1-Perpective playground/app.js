@@ -1,7 +1,7 @@
 const vm = Vue.createApp({
   data() {
     return {
-      perspectiveInput: 0,
+      perspectiveInput: 100,
       rotateXInput: 0,
       rotateYInput: 0,
       rotateZInput: 0,
@@ -9,21 +9,26 @@ const vm = Vue.createApp({
   },
   methods: {
     reset() {
-      (this.perspectiveInput = 0),
+      (this.perspectiveInput = 100),
         (this.rotateXInput = 0),
         (this.rotateYInput = 0),
         (this.rotateZInput = 0);
     },
+    async copy() {
+      let text = `transform:${this.changeRotate.transform};`;
+      await navigator.clipboard.writeText(text);
+
+      alert('CSS copied to clipboard! ✨');
+    },
   },
   computed: {
-    changePerspective() {
-      return {
-        perspective: `${this.perspectiveInput}px`,
-      };
-    },
     changeRotate() {
       return {
-        transform: `rotateX(${this.rotateXInput}deg) rotateY(${this.rotateYInput}deg) rotateZ(${this.rotateZInput}deg)`,
+        transform: `
+        perspective(${this.perspectiveInput}px)
+        rotateX(${this.rotateXInput}deg) 
+        rotateY(${this.rotateYInput}deg) 
+        rotateZ(${this.rotateZInput}deg)`,
       };
     },
   },

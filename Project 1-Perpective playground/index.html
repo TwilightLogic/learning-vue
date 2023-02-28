@@ -43,12 +43,12 @@
               v-model.number="rotateZInput"
             />
 
-            <button type="button" @click="reset">Reset</button>
-            <button type="button">Copy</button>
+            <button type="button" @click.prevent="reset">Reset</button>
+            <button type="button" @click.prevent="copy">Copy</button>
           </div>
         </section>
         <section class="output">
-          <div class="box-container" :style="changePerspective">
+          <div class="box-container">
             <div class="box" :style=" changeRotate"></div>
           </div>
         </section>
