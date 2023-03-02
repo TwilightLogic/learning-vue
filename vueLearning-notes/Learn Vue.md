@@ -16,12 +16,12 @@ A figure that can be used to represent the value of something in calculation
 
 Without a Proxy
 ``` js
-	vm.$data.firstName;
+vm.$data.firstName;
 ```
 
 With a Proxy
 ``` js
-	vm.firstName;
+vm.firstName;
 ```
 
 ### Method
@@ -60,9 +60,8 @@ const vm = Vue.createApp({
 <div id="app">
 	{{ fullName() }}
 	
-<label>First Name</label>
-<input type="text" v-model="firstName" />
-
+	<label>First Name</label>
+	<input type="text" v-model="firstName" />
 </div>
 ```
 
@@ -138,18 +137,18 @@ trim就是删除两边的空白字符咯
 watch可以监听data里的属性
 > 期望接受一个对象，其中键是需要侦听的响应式组件实例属性 (例如，通过 `data` 或 `computed` 声明的属性)——值是相应的回调函数。
 ```js
-	const vm = createApp({
-		data(){
-			age: 20;
-		},
-		watch: {
-			age(newVal, oldVal) {
-				setTimeout(() => {
-					this.age = 20;
-				}, 3000)
-			}
+const vm = createApp({
+	data(){
+		age: 20;
+	},
+	watch: {
+		age(newVal, oldVal) {
+			setTimeout(() => {
+				this.age = 20;
+			}, 3000)
 		}
-	}).mount('#app');
+	}
+}).mount('#app');
 ```
 
 ### Binding classes
@@ -291,7 +290,7 @@ setTimeout(() => {
 
 > Vue的生命周期如下
 > btw，如果我们不想让用户继续交互，销毁实例的方法是vm.unmount()
-> ![[pic/Screenshot 2023-03-01 at 13.59.24.png]]
+> ![vue的生命周期](https://github.com/TwilightLogic/learning-vue/blob/master/vueLearning-notes/pic/Screenshot%202023-03-01%20at%2013.59.24.png?raw=true)
 > **8个hooks ⬇️**
 > 1. beforeCreate() // 在组件实例初始化完成之后立即调用，但是还没有数据传到template上
 > 2. created()
@@ -303,10 +302,10 @@ setTimeout(() => {
 > 8. unmounted()
 
 ### Virtual DOM
-![[pic/Screenshot 2023-03-02 at 10.22.07.png]]
+![pic2](https://github.com/TwilightLogic/learning-vue/blob/master/vueLearning-notes/pic/Screenshot%202023-03-02%20at%2010.22.07.png?raw=true)
 
 可能首先要了解一下Vue的编译，它会把HTML转换成JS对象
-![[pic/Screenshot 2023-03-02 at 10.13.32.png]]
+![pic](https://github.com/TwilightLogic/learning-vue/blob/master/vueLearning-notes/pic/Screenshot%202023-03-02%20at%2010.13.32.png?raw=true)
 
 反正Vue引用Virtual DOM的原因是因为能提高性能就对了
-![[pic/Screenshot 2023-03-02 at 10.18.44.png]]
+![pic4](https://github.com/TwilightLogic/learning-vue/blob/master/vueLearning-notes/pic/Screenshot%202023-03-02%20at%2010.18.44.png?raw=true)
