@@ -43,3 +43,16 @@ vm.mount('#app');
 // setTimeout(() => {
 //   vm.mount('#app');
 // }, 3000);
+
+let vm2 = Vue.createApp({
+  data() {
+    return {
+      message: 'Hello world!',
+      messageNew: 'Fucking world!',
+    };
+  },
+  // Vue without complier
+  render() {
+    return Vue.h('h1', this.messageNew);
+  },
+}).mount('#app2');

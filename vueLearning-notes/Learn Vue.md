@@ -309,3 +309,80 @@ setTimeout(() => {
 
 反正Vue引用Virtual DOM的原因是因为能提高性能就对了
 ![pic4](https://github.com/TwilightLogic/learning-vue/blob/master/vueLearning-notes/pic/Screenshot%202023-03-02%20at%2010.18.44.png?raw=true)
+
+### Proxy
+**Proxy** 对象用于创建一个对象的代理，从而实现基本操作的拦截和自定义（如属性查找、赋值、枚举、函数调用等）
+
+### Vue Complier
+其实如果没用complier性能会更高，但是我们需要用render()来渲染模板，会变得有点麻烦，但之后会介绍vue-cli，可以简化这个过程，并且性能也会更好
+```html
+<!DOCTYPE >
+<html>
+	<head>
+		<title>VueJS Course</title>
+		<link rel="stylesheet" type="text/css" href="main.css" />
+	</head>
+	
+	<body>
+		<div id="app2"></div>  
+		
+		<script src="https://unpkg.com/vue@next"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
+```
+```js
+let vm2 = Vue.createApp({
+	data() {
+		return {
+			messageNew: 'Fucking world!',
+		};
+	},
+	// Vue without complier
+	render() {
+		return Vue.h('h1', this.messageNew);
+	},
+}).mount('#app2');
+```
+
+### Components
+> **What are Components?**
+> -   ﻿Components are the pieces that make up your application. (Ex: header, footer, posts, lists, etc.)
+> -   ﻿Makes it easy to manage the sections of your page.
+
+```js
+let vm = Vue.createApp({
+	// data来自component
+}).mount('#app);
+
+// 在创建好实例后才可以创建component
+// 第一个参数：组建名字，第二个参数：跟上面的createApp一样，能在里面创建data, methods, computed...
+vm.component('hello', {
+	template: '<h1>{{message}}</h1>',
+	data() {
+		return {
+			message: 'Hello the fucking world!',
+		};
+	}
+})
+```
+
+tips: 标签的名称是我们上面为组件定义的名字`hello`
+```html
+<!DOCTYPE >
+<html>
+	<head>
+		<title>VueJS Course</title>
+		<link rel="stylesheet" type="text/css" href="main.css" />
+	</head>
+	
+	<body>
+		<div id="app">
+			<hello></hello>
+		</div>
+		
+		<script src="https://unpkg.com/vue@next"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
+```
