@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0c390f74453b77ce",
+        "id": "89583e1438254651",
         "type": "tabs",
         "children": [
           {
-            "id": "f989a2d930d283d8",
+            "id": "3410c4cab4f259d6",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -146,6 +146,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f989a2d930d283d8",
-  "lastOpenFiles": []
+  "active": "3410c4cab4f259d6",
+  "lastOpenFiles": [
+    "pic/Screenshot 2023-03-02 at 10.22.07.png",
+    "pic/Screenshot 2023-03-02 at 10.18.44.png",
+    "pic/Screenshot 2023-03-02 at 10.13.32.png",
+    "pic/Screenshot 2023-03-01 at 13.59.24.png",
+    "Learn Vue.md"
+  ]
 }

@@ -291,7 +291,7 @@ setTimeout(() => {
 
 > Vue的生命周期如下
 > btw，如果我们不想让用户继续交互，销毁实例的方法是vm.unmount()
-> ![[Screenshot 2023-03-01 at 13.59.24.png]]
+> ![[pic/Screenshot 2023-03-01 at 13.59.24.png]]
 > **8个hooks ⬇️**
 > 1. beforeCreate() // 在组件实例初始化完成之后立即调用，但是还没有数据传到template上
 > 2. created()
@@ -303,10 +303,10 @@ setTimeout(() => {
 > 8. unmounted()
 
 ### Virtual DOM
-![[Screenshot 2023-03-02 at 10.22.07.png]]
+![[pic/Screenshot 2023-03-02 at 10.22.07.png]]
 
 可能首先要了解一下Vue的编译，它会把HTML转换成JS对象
-![[Screenshot 2023-03-02 at 10.13.32.png]]
+![[pic/Screenshot 2023-03-02 at 10.13.32.png]]
 
 反正Vue引用Virtual DOM的原因是因为能提高性能就对了
-![[Screenshot 2023-03-02 at 10.18.44.png]]
+![[pic/Screenshot 2023-03-02 at 10.18.44.png]]
