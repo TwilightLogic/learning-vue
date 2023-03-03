@@ -390,3 +390,12 @@ tips: 标签的名称是我们上面为组件定义的名字`hello`
 ### Tools
 #### - Vite
 > Vite is a module bundler for applications
+
+#### - SASS
+> See `09-learn sass`
+
+#### - PostCSS
+> - It is an object which coding by JS
+> - **EASY to interact JS with CSS**
+> - **Already installed** by Vite
+> 🙋 **Prerequisite**: add **`postcss.config.cjs`** into project content

@@ -1,3 +1,12 @@
+// This to learn postCSS
+
+// 比如说我们想加个prefix::moz-placeholder{}，但是我们忘了，我们只写了::placeholder {}，但postCSS会帮我们自动加上（看dev tools）
+::placeholder {
+  color: red;
+}
+
+///////////////////////////////////////////
+
 // This to learn SASS ⬇️
 
 h1 {
