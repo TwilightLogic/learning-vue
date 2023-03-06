@@ -402,3 +402,7 @@ tips: 标签的名称是我们上面为组件定义的名字`hello`
 
 ### Scaffolding a vue project 
 ![[Screenshot 2023-03-06 at 15.09.50.png]]
+
+### Reviewing the files
+以vue结尾为拓展名的文件是`单文件组件`
+> 包含了`script, template, style`三个tag（会编译成一个js文件的）
