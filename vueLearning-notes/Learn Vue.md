@@ -399,3 +399,6 @@ tips: 标签的名称是我们上面为组件定义的名字`hello`
 > - **EASY to interact JS with CSS**
 > - **Already installed** by Vite
 > 🙋 **Prerequisite**: add **`postcss.config.cjs`** into project content
+
+### Scaffolding a vue project 
+![[Screenshot 2023-03-06 at 15.09.50.png]]
