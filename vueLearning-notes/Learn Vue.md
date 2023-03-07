@@ -414,3 +414,15 @@ tips: 标签的名称是我们上面为组件定义的名字`hello`
 
 #### Scoped CSS
 当 `<style>` 标签带有 `scoped` attribute 的时候，它的 CSS 只会影响当前组件的元素，和 Shadow DOM 中的样式封装类似。
+
+### Comunicating between components
+Learn how to pass down data to children components
+
+![[Screenshot 2023-03-07 at 09.48.01.png]]
+> 比如我们只想跟25岁以下的打招呼，那子组件User的数据怎么才能传到Greeting呢？
+> BTW: vue不支持在同级组件中共享数据
+
+![[Screenshot 2023-03-07 at 09.51.02.png]]
+> 解决方案：使用`props`
+> 父组件能够向下发送数据到子组件（发送到组件的数据叫做`props`） it means something.
+
