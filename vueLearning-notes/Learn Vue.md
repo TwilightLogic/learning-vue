@@ -401,8 +401,16 @@ tips: 标签的名称是我们上面为组件定义的名字`hello`
 > 🙋 **Prerequisite**: add **`postcss.config.cjs`** into project content
 
 ### Scaffolding a vue project 
-![[Screenshot 2023-03-06 at 15.09.50.png]]
+![][https://github.com/TwilightLogic/learning-vue/blob/master/vueLearning-notes/pic/Screenshot%202023-03-06%20at%2015.09.50.png?raw=true]
 
 ### Reviewing the files
 以vue结尾为拓展名的文件是`单文件组件`
 > 包含了`script, template, style`三个tag（会编译成一个js文件的）
+
+### Component Styles
+#### Shadow DOM
+> - A way to isolate components from the regular DOM with its own stylings, events and structure
+> - Not the Virtual DOM 
+
+#### Scoped CSS
+当 `<style>` 标签带有 `scoped` attribute 的时候，它的 CSS 只会影响当前组件的元素，和 Shadow DOM 中的样式封装类似。

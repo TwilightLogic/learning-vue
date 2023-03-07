@@ -12,3 +12,10 @@ export default {
   },
 };
 </script>
+
+<!-- 加上scoped标签：样式只会应用于Greeting组件本身 -->
+<style scoped>
+h1 {
+  color: aquamarine;
+}
+</style>
