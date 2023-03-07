@@ -14,8 +14,15 @@ export default {
 </script>
 
 <!-- 加上scoped标签：样式只会应用于Greeting组件本身 -->
-<style scoped>
-h1 {
-  color: aquamarine;
+<!-- lang='scss' 为项目添加sass-->
+<style scoped lang="scss">
+/* 我们用sass ⬇️*/
+h1:hover {
+  color: darken(#cc4444, 15%);
 }
+/* 
+    h1 {
+    color: aquamarine;
+    } 
+*/
 </style>
