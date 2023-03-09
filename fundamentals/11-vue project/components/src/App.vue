@@ -3,7 +3,11 @@
   <greeting :age="age"></greeting>
   <!-- 我们在父组件设置的age值，可以在下面标签给一个attribute值，然后再传入数据即可 -->
   <!-- 第一个age来自于User，第二个age是来自App的数据 -->
-  <user :age="age" @age-change="updateAge"></user>
+  <user
+    :age="age"
+    @age-change="updateAge"
+    :ageChangeFn="updateAgeCallBack"
+  ></user>
 </template>
 
 <script>
@@ -25,6 +29,11 @@ export default {
   },
   methods: {
     updateAge(num) {
+      this.age += num;
+    },
+    // Learning callback functions
+    // Passing updateAgeCallBack(num) function to the children component
+    updateAgeCallBack(num) {
       this.age += num;
     },
     updateDoubleAge() {
