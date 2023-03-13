@@ -11,8 +11,10 @@
     <template v-slot:buttons>
       <button type="submit">Submit</button>
     </template>
+    <!-- 因为我们在Form组件中有一个没有命名的slot，所以下面的<p></p>会自动放进slot中 -->
     <p>Dummy text</p>
   </app-form>
+
   <app-form>
     <template v-slot:help>
       <p>contact help text.</p>
