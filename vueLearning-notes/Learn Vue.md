@@ -426,4 +426,9 @@ Learn how to pass down data to children components
 > 解决方案：使用`props`
 > 父组件能够向下发送数据到子组件（发送到组件的数据叫做`props`） it means something.
 
-### Callback Functions
+### Learning Slots
+> - 能将内容从父组件传递到子组件
+> - 在库开发中比较流行
+> - 把form放进一个组件是个好主意！
+
+> 因为很多时候我们写form的时候有可能会复用很多次，而且ui基本一样，仅是input字段不一样而已，所以我们要使我们的form变得可复用性高一点。这里用slots就能解决这个问题。
