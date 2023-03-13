@@ -432,3 +432,4 @@ Learn how to pass down data to children components
 > - 把form放进一个组件是个好主意！
 
 > 因为很多时候我们写form的时候有可能会复用很多次，而且ui基本一样，仅是input字段不一样而已，所以我们要使我们的form变得可复用性高一点。这里用slots就能解决这个问题。
+> ⚠️: `v-slot:name `只能放在template标签
