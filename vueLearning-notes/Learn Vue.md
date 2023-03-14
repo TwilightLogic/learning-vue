@@ -436,3 +436,5 @@ Learn how to pass down data to children components
 
 ### Learn dynamic components
 > 可以与别的组件交换
+
+### Animating with CSS transitions
