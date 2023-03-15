@@ -1,11 +1,26 @@
 <template>
   <button type="button" @click="flag = !flag">Toggle</button>
+  <!-- Animating with transition CSS -->
+
   <!-- <transition name="fade" mode="out-in">
     <h2 v-if="flag" key="main">Hello the fucking world!!!</h2>
     <h2 v-else key="secondary">Another fuck!!!</h2>
   </transition> -->
-  <transition name="zoom" type="animation" appear>
+
+  <!-- <transition name="zoom" type="animation" appear>
     <h2 v-if="flag">hello</h2>
+  </transition> -->
+
+  <!-- Animating with JS -->
+  <transition
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @after-enter="afterEnter"
+    @before-leave="beforeLeave"
+    @leave="leave"
+    @after-leave="afterLeave"
+  >
+    <h2 v-if="flag">Hey suck</h2>
   </transition>
 </template>
 
@@ -16,6 +31,28 @@ export default {
     return {
       flag: true,
     };
+  },
+  methods: {
+    beforeEnter(el) {
+      console.log('beforeEnter was fired!', el);
+    },
+    enter(el, done) {
+      console.log('enter was fired!', el);
+      done();
+    },
+    afterEnter(el) {
+      console.log('afterEnter was fired!', el);
+    },
+    beforeLeave(el) {
+      console.log('beforeLeave was fired!', el);
+    },
+    leave(el, done) {
+      console.log('leave was fired!', el);
+      done();
+    },
+    afterLeave(el) {
+      console.log('afterLeave was fired!', el);
+    },
   },
 };
 </script>

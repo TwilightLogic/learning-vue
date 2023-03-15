@@ -437,4 +437,95 @@ Learn how to pass down data to children components
 ### Learn dynamic components
 > 可以与别的组件交换
 
-### Animating with CSS transitions
+### Animating with JS
+这些hooks可以让我们控制animation的过程
+![[Screenshot 2023-03-15 at 10.58.13.png]]
+```vue
+<template>
+
+<button type="button" @click="flag = !flag">Toggle</button>
+
+<!-- Animating with transition CSS -->
+
+  
+
+<!-- <transition name="fade" mode="out-in">
+
+<h2 v-if="flag" key="main">Hello the fucking world!!!</h2>
+
+<h2 v-else key="secondary">Another fuck!!!</h2>
+
+</transition> -->
+
+  
+
+<!-- <transition name="zoom" type="animation" appear>
+
+<h2 v-if="flag">hello</h2>
+
+</transition> -->
+
+  
+
+<!-- Animating with JS -->
+
+<transition
+
+@before-enter="beforeEnter"
+
+@enter="enter"
+
+@after-enter="afterEnter"
+
+@before-leave="beforeLeave"
+
+@leave="leave"
+
+@after-leave="afterLeave"
+
+>
+
+<h2 v-if="flag">Hey suck</h2>
+
+</transition>
+
+</template>
+
+  
+
+<script>
+
+export default {
+
+name: 'App',
+
+data() {
+
+return {
+
+flag: true,
+
+};
+
+},
+
+methods: {
+
+beforeEnter() {},
+
+enter() {},
+
+afterEnter() {},
+
+beforeLeave() {},
+
+leave() {},
+
+afterLeave() {},
+
+},
+
+};
+
+</script>
+```
