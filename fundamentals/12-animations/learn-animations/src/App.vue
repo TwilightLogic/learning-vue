@@ -12,6 +12,7 @@
   </transition> -->
 
   <!-- Animating with JS -->
+  <!-- `:css="false"`直接跳过检查CSS动画，从而直接使用JS动画 -->
   <transition
     @before-enter="beforeEnter"
     @enter="enter"
@@ -19,6 +20,7 @@
     @before-leave="beforeLeave"
     @leave="leave"
     @after-leave="afterLeave"
+    :css="false"
   >
     <h2 v-if="flag">Hey suck</h2>
   </transition>
@@ -38,7 +40,13 @@ export default {
     },
     enter(el, done) {
       console.log('enter was fired!', el);
-      done();
+      // 学习Web Animations API
+      const animation = el.animate([{ transform: 'scale3D(0, 0, 0)' }, {}], {
+        duration: 1000,
+      });
+      // 当animation完成时，会调用done()函数
+      // Tips: 调用回调函数 done 表示过渡结束
+      animation.onFinish = () => done();
     },
     afterEnter(el) {
       console.log('afterEnter was fired!', el);
@@ -48,7 +56,10 @@ export default {
     },
     leave(el, done) {
       console.log('leave was fired!', el);
-      done();
+      const animation = el.animate([{}, { transform: 'scale3D(0, 0, 0)' }], {
+        duration: 1000,
+      });
+      animation.onFinish = () => done();
     },
     afterLeave(el) {
       console.log('afterLeave was fired!', el);
