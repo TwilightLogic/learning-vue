@@ -28,7 +28,11 @@
   <!-- 学习animating list -->
   <button type="button" @click="addItem">Add item</button>
   <ul>
-    <transition-group name="fade">
+    <transition-group
+      name="fade"
+      enter-active-class="animate__animated animate__flipInx"
+      leave-active-class="animate__animated animate__flipOutX"
+    >
       <li
         v-for="(number, index) in numbers"
         :key="number"
@@ -92,6 +96,14 @@ export default {
 </script>
 
 <style>
+.animate__flipOutX {
+  position: absolute;
+}
+
+.animate__animated {
+  animation-duration: 1.5s;
+}
+
 li {
   font-size: 24px;
   cursor: pointer;
@@ -113,6 +125,16 @@ h2 {
 .fade-leave-to {
   transition: all 0.5s linear;
   opacity: 0;
+}
+
+/* 卧槽发生了什么 */
+.fade-move {
+  transition: all 1s linear;
+}
+
+/* 卧槽发生了什么 */
+.fade-leave-active {
+  position: absolute;
 }
 
 .zoom-enter-from {
