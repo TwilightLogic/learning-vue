@@ -105,9 +105,12 @@ export default {
     };
   },
   methods: {
-    // 这里能接收来自
+    // 这里能接收来自Question组件的is_correct的值
     questionsAnsweredFunction(is_correct) {
       is_correct ? this.totalCorrect++ : '';
+
+      // 回答完一个问题后，要回答下一个问题
+      this.questionsAnswered++;
     },
   },
 };

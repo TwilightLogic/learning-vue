@@ -1,8 +1,16 @@
 <template>
   <div class="questions-ctr">
     <div class="progress">
-      <div class="bar"></div>
-      <div class="status">1 out of 3 questions answered</div>
+      <div
+        class="bar"
+        :style="{
+          width: `${(questionsAnswered / questionsArr.length) * 100}%`,
+        }"
+      ></div>
+      <div class="status">
+        {{ questionsAnswered }} out of {{ questionsArr.length }} questions
+        answered
+      </div>
     </div>
     <div
       class="single-question"
