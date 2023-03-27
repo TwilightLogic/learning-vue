@@ -6,8 +6,9 @@
     </div>
     <div
       class="single-question"
-      v-for="question in questionsArr"
+      v-for="(question, questionIndex) in questionsArr"
       :key="question.q"
+      v-show="questionsAnswered === questionIndex"
     >
       <div class="question">{{ question.q }}</div>
       <div class="answers">
@@ -15,6 +16,7 @@
           class="answer"
           v-for="answer in question.answers"
           :key="answer.text"
+          @click.prevent="selectAnswer(answer.is_correct)"
         >
           {{ answer.text }}
         </div>
@@ -25,6 +27,14 @@
 
 <script>
 export default {
-  props: ['questionsArr'],
+  props: ['questionsArr', 'questionsAnswered'],
+  // 为什么要写emits来触发一个自定义事件呢？
+  // 因为我们并不想在这个question组件里处理这些逻辑，我们想在App组件里写
+  emits: ['question-answered'],
+  methods: {
+    selectAnswer(is_correct) {
+      this.$emit('question-answered', is_correct);
+    },
+  },
 };
 </script>
