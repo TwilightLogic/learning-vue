@@ -9,7 +9,15 @@
       @question-answered="questionsAnsweredFunction"
     />
     <result v-else :results="results" :totalCorrect="totalCorrect" />
-    <button type="button" class="reset-btn">Reset</button>
+    <!-- 这里的v-if是为了让用户把问题答完才能reset -->
+    <button
+      type="button"
+      class="reset-btn"
+      @click.prevent="reset"
+      v-if="this.questionsAnswered === questions.length"
+    >
+      Reset
+    </button>
   </div>
 </template>
 
@@ -113,6 +121,10 @@ export default {
       this.questionsAnswered++;
 
       console.log(this.totalCorrect);
+    },
+    reset() {
+      this.questionsAnswered = 0;
+      this.totalCorrect = 0;
     },
   },
 };
