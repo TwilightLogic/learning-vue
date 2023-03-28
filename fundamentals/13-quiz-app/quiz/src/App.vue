@@ -8,7 +8,7 @@
       :questionsAnswered="questionsAnswered"
       @question-answered="questionsAnsweredFunction"
     />
-    <result v-else />
+    <result v-else :results="results" :totalCorrect="totalCorrect" />
     <button type="button" class="reset-btn">Reset</button>
   </div>
 </template>
@@ -111,6 +111,8 @@ export default {
 
       // 回答完一个问题后，要回答下一个问题
       this.questionsAnswered++;
+
+      console.log(this.totalCorrect);
     },
   },
 };
