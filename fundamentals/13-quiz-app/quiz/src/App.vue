@@ -1,14 +1,16 @@
 <template>
   <div class="ctr">
-    <!-- 只有答完题才会渲染result，所以这里加了if else逻辑 -->
-    <!-- 我们把在app.vue中的data传到question和result组件中(props) -->
-    <question
-      v-if="questionsAnswered < questions.length"
-      :questionsArr="questions"
-      :questionsAnswered="questionsAnswered"
-      @question-answered="questionsAnsweredFunction"
-    />
-    <result v-else :results="results" :totalCorrect="totalCorrect" />
+    <transition name="fade" mode="out-in">
+      <!-- 只有答完题才会渲染result，所以这里加了if else逻辑 -->
+      <!-- 我们把在app.vue中的data传到question和result组件中(props) -->
+      <question
+        v-if="questionsAnswered < questions.length"
+        :questionsArr="questions"
+        :questionsAnswered="questionsAnswered"
+        @question-answered="questionsAnsweredFunction"
+      />
+      <result v-else :results="results" :totalCorrect="totalCorrect" />
+    </transition>
     <!-- 这里的v-if是为了让用户把问题答完才能reset -->
     <button
       type="button"
