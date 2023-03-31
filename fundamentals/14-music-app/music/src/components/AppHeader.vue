@@ -39,9 +39,7 @@ export default {
     toggleAuthModal() {
       // 这个时候我们要访问modal.js的isOpen的值，那我们要怎么访问呢？
       // 用pinia自带的`mapStores`函数
-      // 为什么是this.modalStore?????
       this.modalStore.isOpen = !this.modalStore.isOpen
-      console.log(this.modalStore.isOpen)
     }
   }
 }

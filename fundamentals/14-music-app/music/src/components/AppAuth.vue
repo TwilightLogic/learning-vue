@@ -20,7 +20,7 @@
           <div class="flex justify-between items-center pb-4">
             <p class="text-2xl font-bold">Your Account</p>
             <!-- Modal Close Button -->
-            <div class="modal-close cursor-pointer z-50">
+            <div class="modal-close cursor-pointer z-50" @click="isOpen = false">
               <i class="fas fa-times"></i>
             </div>
           </div>
@@ -142,14 +142,17 @@
 </template>
 
 <script>
-import { mapStores } from 'pinia'
+import { mapState, mapWritableState } from 'pinia'
 import useModalStore from '@/stores/modal'
 
 export default {
   name: 'AppAuth',
   // getters要用computed来接收
   computed: {
-    ...mapStores(useModalStore, ['hiddenClass'])
+    // 用mapWritableState来关闭这个login/register modal
+    // close modal: 目标是把isOpen设成false
+    ...mapState(useModalStore, ['hiddenClass']),
+    ...mapWritableState(useModalStore, ['isOpen'])
   }
 }
 </script>
