@@ -81,7 +81,7 @@
             </button>
           </form>
           <!-- Registration Form -->
-          <vee-form v-show="tab === 'register'">
+          <vee-form v-show="tab === 'register'" :validation-schema="schema">
             <!-- Name -->
             <div class="mb-3">
               <label class="inline-block mb-2">Name</label>
@@ -91,6 +91,8 @@
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Enter Name"
               />
+              <!-- 下面的name表示error message要输出的地方 -->
+              <ErrorMessage class="text-red-600" name="name" />
             </div>
             <!-- Email -->
             <div class="mb-3">
@@ -159,6 +161,7 @@
 <script>
 import { mapState, mapWritableState } from 'pinia'
 import useModalStore from '@/stores/modal'
+import { ErrorMessage } from 'vee-validate'
 
 export default {
   name: 'AppAuth',
@@ -166,7 +169,16 @@ export default {
   // 我们会根据tab的不同来渲染页面
   data() {
     return {
-      tab: 'login'
+      tab: 'login',
+      schema: {
+        name: 'required',
+        email: '',
+        age: '',
+        password: '',
+        confirm_password: '',
+        country: '',
+        tos: ''
+      }
     }
   },
   // getters要用computed来接收
@@ -178,6 +190,7 @@ export default {
       // 将isOpen这种可读性差的属性名换成可读性好的
       modalVisibility: 'isOpen'
     })
-  }
+  },
+  components: { ErrorMessage }
 }
 </script>
