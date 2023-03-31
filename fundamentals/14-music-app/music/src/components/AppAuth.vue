@@ -20,7 +20,7 @@
           <div class="flex justify-between items-center pb-4">
             <p class="text-2xl font-bold">Your Account</p>
             <!-- Modal Close Button -->
-            <div class="modal-close cursor-pointer z-50" @click="isOpen = false">
+            <div class="modal-close cursor-pointer z-50" @click="modalVisibility = false">
               <i class="fas fa-times"></i>
             </div>
           </div>
@@ -152,7 +152,10 @@ export default {
     // 用mapWritableState来关闭这个login/register modal
     // close modal: 目标是把isOpen设成false
     ...mapState(useModalStore, ['hiddenClass']),
-    ...mapWritableState(useModalStore, ['isOpen'])
+    ...mapWritableState(useModalStore, {
+      // 将isOpen这种可读性差的属性名换成可读性好的
+      modalVisibility: 'isOpen'
+    })
   }
 }
 </script>
