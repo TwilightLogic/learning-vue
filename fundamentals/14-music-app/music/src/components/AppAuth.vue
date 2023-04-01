@@ -118,13 +118,17 @@
             <!-- Password -->
             <div class="mb-3">
               <label class="inline-block mb-2">Password</label>
-              <vee-field
-                name="password"
-                type="password"
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-                placeholder="Password"
-              />
-              <ErrorMessage class="text-red-600" name="password" />
+              <vee-field name="password" :bails="false" v-slot="{ field, errors }">
+                <input
+                  type="password"
+                  class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+                  placeholder="Password"
+                  v-bind="field"
+                />
+                <div class="text-red-600" v-for="error in errors" :key="error">
+                  {{ error }}
+                </div>
+              </vee-field>
             </div>
             <!-- Confirm Password -->
             <div class="mb-3">
@@ -193,7 +197,7 @@ export default {
         name: 'required|min:3|max:10|alpha_spaces',
         email: 'required|min:3|max:100|email',
         age: 'required|min_value:18|max_value:100',
-        password: 'required|min:3|max:100',
+        password: 'required|min:9|max:100|not_one_of:password',
         // confirmed: @password 指定了password这个name的值要和confirm_password这个name的值相同
         confirm_password: 'confirmed:@password',
         country: 'required|not_one_of:Antarctica',
