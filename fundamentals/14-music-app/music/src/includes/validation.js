@@ -58,7 +58,13 @@ export default {
           : `The field ${context.field} is valid.`
 
         return message
-      }
+      },
+
+      // Validation triggers
+      validateOnBlur: true,
+      validateOnChange: true,
+      validateOnInput: false,
+      validateOnModelUpdate: true
     })
   }
 }
