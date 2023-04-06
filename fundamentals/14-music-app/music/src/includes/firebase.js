@@ -4,6 +4,11 @@ import 'firebase/auth'
 // 如果我们想用数据库交互的方法，就要导入fire store了
 import 'firebase/firestore'
 
+//  -------------------------------- NOTEs: 📒 --------------------------------
+// `Buckets` are the physical location where our data is stored
+// `Collections` are the objects in Fire Store
+// `Documents` are the individual records in collections, which are the data we stored in the database
+
 // My web app's Firebase configuration
 const firebaseConfig = {
   // apiKey是我们连接到firebase的方式
@@ -11,7 +16,7 @@ const firebaseConfig = {
   // authDomain是firebase提供的一个url，我们可以在其中发送身份验证信息
   authDomain: 'music-408a3.firebaseapp.com',
   projectId: 'music-408a3',
-  //   storageBucket是文件存储的位置
+  // storageBucket是文件存储的位置
   storageBucket: 'music-408a3.appspot.com',
   appId: '1:322975136315:web:e2fa8840d66095352bba1e'
 }
