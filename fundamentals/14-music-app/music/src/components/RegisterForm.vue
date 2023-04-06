@@ -109,7 +109,7 @@
 <script>
 // 确保从源目录导入文件的一个简单的方法就是用@符号(webpack)
 // 当我们文件有很多层嵌套，我们就不必向上移动好多层目录
-import firebase from '@/includes/firebase'
+import { auth, db } from '@/includes/firebase'
 
 export default {
   name: 'RegisterForm',
@@ -149,9 +149,9 @@ export default {
       try {
         // firebase: User account creation can fail if the account already exists or the password is invalid.
         // ⬆️ 所以如果我们注册同样的账号，会直接导致异常
-        userCred = await firebase
-          .auth()
-          .createUserWithEmailAndPassword(values.email, values.password)
+        // 它⬇️ 不存储其他数据，只存储了email和password
+        // 如果想存储其他的数据，可以用fire store
+        userCred = await auth.createUserWithEmailAndPassword(values.email, values.password)
       } catch (error) {
         this.reg_in_submission = false
         this.reg_alert_variant = 'bg-red-500'

@@ -1,6 +1,8 @@
 import firebase from 'firebase/app'
 // ⬇️ 我们不用写库名也能智能地导入
 import 'firebase/auth'
+// 如果我们想用数据库交互的方法，就要导入fire store了
+import 'firebase/firestore'
 
 // My web app's Firebase configuration
 const firebaseConfig = {
@@ -16,4 +18,10 @@ const firebaseConfig = {
 
 // 初始化应用程序
 // 它会返回一个我们可以用来与之通信的firebase实例
-export default firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig)
+
+const auth = firebase.auth()
+// firestore()函数将返回一个具有与数据库交互的方法和属性的对象
+const db = firebase.firestore()
+
+export { auth, db }
