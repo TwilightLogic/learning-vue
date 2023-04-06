@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 // ⬇️ 我们不用写库名也能智能地导入
 import 'firebase/auth'
 // 如果我们想用数据库交互的方法，就要导入fire store了
+// 因为我们要获取用户填的所有信息，所以这里才要用firestore
 import 'firebase/firestore'
 
 //  -------------------------------- NOTEs: 📒 --------------------------------
@@ -29,4 +30,8 @@ const auth = firebase.auth()
 // firestore()函数将返回一个具有与数据库交互的方法和属性的对象
 const db = firebase.firestore()
 
-export { auth, db }
+// db.collection()里面有一个collection name的参数
+// 返回一个对象，其中包含用于处理用户集合的方法和属性
+const usersCollection = db.collection('users')
+
+export { auth, db, usersCollection }

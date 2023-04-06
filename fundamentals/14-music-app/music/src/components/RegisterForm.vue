@@ -109,7 +109,7 @@
 <script>
 // 确保从源目录导入文件的一个简单的方法就是用@符号(webpack)
 // 当我们文件有很多层嵌套，我们就不必向上移动好多层目录
-import { auth, db } from '@/includes/firebase'
+import { auth, usersCollection } from '@/includes/firebase'
 
 export default {
   name: 'RegisterForm',
@@ -152,6 +152,24 @@ export default {
         // 它⬇️ 不存储其他数据，只存储了email和password
         // 如果想存储其他的数据，可以用fire store
         userCred = await auth.createUserWithEmailAndPassword(values.email, values.password)
+      } catch (error) {
+        this.reg_in_submission = false
+        this.reg_alert_variant = 'bg-red-500'
+        this.reg_alert_msg = 'An unexpected error ocurred. Please try again later.'
+
+        // 这个return函数会停止函数的继续执行
+        return
+      }
+
+      // 这个记录可以去firebase后台看 ⬇️
+      try {
+        // add函数会向集合里添加一个document（用来描述集合中的对象），这里我们只收集我们需要的数据
+        await usersCollection.add({
+          name: values.name,
+          email: values.email,
+          age: values.age,
+          country: values.country
+        })
       } catch (error) {
         this.reg_in_submission = false
         this.reg_alert_variant = 'bg-red-500'
