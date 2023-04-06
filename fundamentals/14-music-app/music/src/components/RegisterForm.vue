@@ -110,6 +110,8 @@
 // 确保从源目录导入文件的一个简单的方法就是用@符号(webpack)
 // 当我们文件有很多层嵌套，我们就不必向上移动好多层目录
 import { auth, usersCollection } from '@/includes/firebase'
+import useUserStore from '@/stores/user'
+import { mapWritableState } from 'pinia'
 
 export default {
   name: 'RegisterForm',
@@ -134,6 +136,9 @@ export default {
       reg_alert_msg: 'Please wait! Your account is being created.'
     }
   },
+  computed: {
+    ...mapWritableState(useUserStore, ['userLoggedIn'])
+  },
   methods: {
     // 注册函数是处理submit的地方
     async register(values) {
@@ -145,6 +150,7 @@ export default {
       // 我们已经在上面添加了alert的数据
       // 但是这里我们希望使用firebase发送数据 ⬇️
       // firebase.auth().createUserWithEmailAndPassword()返回一个对象，其中包含我们可以用来与身份验证进行通信的方法和属性
+      // 这里是为了做用户身份验证
       let userCred = null
       try {
         // firebase: User account creation can fail if the account already exists or the password is invalid.
@@ -161,6 +167,7 @@ export default {
         return
       }
 
+      // 这里是为了将数据写入数据库
       // 这个记录可以去firebase后台看 ⬇️
       try {
         // add函数会向集合里添加一个document（用来描述集合中的对象），这里我们只收集我们需要的数据
@@ -178,6 +185,10 @@ export default {
         // 这个return函数会停止函数的继续执行
         return
       }
+
+      // 登陆成功后，就讲用户的登录状态设成true
+      // 因为我们要将上面nav栏的`register/login`设置成`log out`
+      this.userLoggedIn = true
 
       this.reg_alert_variant = 'bg-green-500'
       this.reg_alert_msg = 'Success! Your account has been created.'

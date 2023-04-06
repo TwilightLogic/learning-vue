@@ -86,7 +86,6 @@ export default {
       // 将isOpen这种可读性差的属性名换成可读性好的
       modalVisibility: 'isOpen'
     })
-  },
-  methods: {}
+  }
 }
 </script>
