@@ -12,13 +12,23 @@ export default defineStore('user', {
   // 因为register函数里面有修改firebase数据库的功能，所以register()是actions
   actions: {
     async register(values) {
-      await auth.createUserWithEmailAndPassword(values.email, values.password)
+      const userCred = await auth.createUserWithEmailAndPassword(values.email, values.password)
 
-      await usersCollection.add({
+      // add(): will insert a document into a collection with the generated ID
+      // doc(): allow us to select a document in a collection(will create one if not exist)
+      // Firebase will store the document with the ID we passed in
+      // set(): will add or modify existing properties in a document
+      // 说人话：为了让firebase上的authentication里的uid和database里的uid相同
+      await usersCollection.doc(userCred.user.uid).set({
         name: values.name,
         email: values.email,
         age: values.age,
         country: values.country
+      })
+
+      // Users can also upload their name and profile image
+      await userCred.user.updateProfile({
+        displayName: values.name
       })
 
       this.userLoggedIn = true
