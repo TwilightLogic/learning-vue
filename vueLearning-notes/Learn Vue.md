@@ -442,3 +442,9 @@ Learn how to pass down data to children components
 ![[Screenshot 2023-03-15 at 10.58.13.png]]
 
 Using Web Animations API
+
+### Actions VS Components
+
+什么时候用action？什么时候用component？
+
+![Screenshot 2023-04-07 at 11.23.51](/Users/logictwilight/Library/Application Support/typora-user-images/Screenshot 2023-04-07 at 11.23.51.png)
