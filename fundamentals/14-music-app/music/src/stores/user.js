@@ -32,6 +32,12 @@ export default defineStore('user', {
       })
 
       this.userLoggedIn = true
+    },
+    async authenticate(values) {
+      // 1. Send the request to firebase with the payload data
+      await auth.signInWithEmailAndPassword(values.email, values.password)
+
+      this.userLoggedIn = true
     }
   }
 })
