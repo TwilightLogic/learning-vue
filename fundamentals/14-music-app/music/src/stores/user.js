@@ -38,6 +38,12 @@ export default defineStore('user', {
       await auth.signInWithEmailAndPassword(values.email, values.password)
 
       this.userLoggedIn = true
+    },
+    async signOut() {
+      // 无所谓，firebase会帮我们clear数据
+      await auth.signOut()
+
+      this.userLoggedIn = false
     }
   }
 })
